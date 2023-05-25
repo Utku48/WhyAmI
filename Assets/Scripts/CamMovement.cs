@@ -26,7 +26,7 @@ public class CamMovement : MonoBehaviour
         xRot -= rotY;
 
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
-body.Rotate(Vector3.up * rotX);
+        body.Rotate(Vector3.up * rotX);
 
     }
 }
