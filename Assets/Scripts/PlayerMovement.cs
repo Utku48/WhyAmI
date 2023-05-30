@@ -19,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public float gravity;
 
     public LayerMask mask;
+    
 
 
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+       
 
     }
     void Update()
@@ -71,7 +73,8 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
-       
+
 
     }
+    
 }
