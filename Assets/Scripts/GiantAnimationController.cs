@@ -1,13 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GiantAnimationController : MonoBehaviour
 {
 
-    Animator animator;
+    public static Animator animator;
     public AudioSource askinOlayim;
     public AudioClip clip;
+    float sayac = 0;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -19,7 +20,12 @@ public class GiantAnimationController : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
             animator.SetBool("isDancing", true);
-            askinOlayim.PlayOneShot(clip);
+            sayac++;
+            if (sayac > 0 && sayac <= 1)
+            {
+                askinOlayim.PlayOneShot(clip);
+            }
+
 
 
 

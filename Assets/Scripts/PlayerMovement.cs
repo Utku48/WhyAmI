@@ -19,14 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public float gravity;
 
     public LayerMask mask;
-    
+
+
 
 
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-       
 
     }
     void Update()
@@ -76,5 +76,16 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("GiantLine"))
+        {
+            Debug.Log("Temas");
+            GiantAnimationController.animator.SetBool("isTouched", true);
+            Destroy(other.gameObject);
+        }
+        else
+            GiantAnimationController.animator.SetBool("isTouched", false);
+    }
+
 }
