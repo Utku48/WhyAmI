@@ -26,9 +26,6 @@ public class GiantAnimationController : MonoBehaviour
                 askinOlayim.PlayOneShot(clip);
             }
 
-
-
-
         }
         else
             animator.SetBool("isDancing", false);

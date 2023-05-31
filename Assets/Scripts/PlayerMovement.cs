@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float JumpSpeed;
     public float gravity;
-
+    public GameObject canvas;
+    public GameObject mami;
     public LayerMask mask;
 
 
@@ -74,6 +75,13 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
 
+        if (Input.GetKey("e"))
+        {
+            canvas.SetActive(false);
+            mami.SetActive(false);
+
+        }
+
 
     }
     private void OnTriggerEnter(Collider other)
@@ -83,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Temas");
             GiantAnimationController.animator.SetBool("isTouched", true);
             Destroy(other.gameObject);
+            canvas.SetActive(true);
         }
         else
             GiantAnimationController.animator.SetBool("isTouched", false);
