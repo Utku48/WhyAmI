@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -18,11 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public float JumpSpeed;
     public float gravity;
     public GameObject canvas;
-    public GameObject mami;
+    public GameObject Diecanvas;
+
     public LayerMask mask;
-
-
-
 
 
     void Start()
@@ -78,23 +77,40 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("e"))
         {
             canvas.SetActive(false);
-            mami.SetActive(false);
 
         }
-
-
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("GiantLine"))
         {
-            Debug.Log("Temas");
             GiantAnimationController.animator.SetBool("isTouched", true);
             Destroy(other.gameObject);
             canvas.SetActive(true);
         }
         else
             GiantAnimationController.animator.SetBool("isTouched", false);
+
+        if (other.gameObject.CompareTag("DieLine"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            //Destroy(this.gameObject);
+            //Diecanvas.SetActive(true);
+           
+            //if (Input.GetKeyDown(KeyCode.R))
+            //{
+            //    Diecanvas.SetActive(false);
+               
+
+            //}
+        }
+
+        if (other.gameObject.CompareTag("Tp"))
+        {
+            SceneManager.LoadScene("Part2");
+        }
     }
+
 
 }

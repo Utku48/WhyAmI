@@ -8,6 +8,9 @@ TagManager:
   - WitchSign
   - Giant
   - GiantLine
+  - RockLine
+  - DieLine
+  - Tp
   layers:
   - Default
   - TransparentFX
