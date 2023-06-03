@@ -15,11 +15,12 @@ public class GateRockAnimator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            anim.SetBool("isTurning", true);
-        }
-        else
-            anim.SetBool("isTurning", false);
+            if (GiantAnimationController.sayac <= 1 && GiantAnimationController.sayac != 0)
+            {
+                anim.SetBool("isTurning", true);
+            }
+            else
+                anim.SetBool("isTurning", false);
 
     }
     void Update()

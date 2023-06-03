@@ -8,7 +8,7 @@ public class GiantAnimationController : MonoBehaviour
     public static Animator animator;
     public AudioSource askinOlayim;
     public AudioClip clip;
-    float sayac = 0;
+   public static float sayac = 0;
     void Start()
     {
         animator = GetComponent<Animator>();
